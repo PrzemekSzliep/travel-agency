@@ -11,13 +11,23 @@ export const getFilteredTrips = ({trips, filters}) => {
     output = output.filter(trip => pattern.test(trip.name));
   }
 
+
   if(filters.duration) {
-    console.log('test', filters.duration);
+    output = output.filter(trip => trip.days >= filters.duration.from && trip.days <= filters.duration.to);
   }
 
-  if(filters.tags) {
-    console.log(filters.tags);
-    output = output.filter(trip => trip.name == filters.tags);
+  if(filters.tags.length) {
+    const trips = output;
+    output = [];
+    trips.forEach(trip => {
+      filters.tags.forEach(tag => {
+        if(trip.tags.includes(tag)) {
+          if(!output.includes(trip)) {
+            output = [...output, trip];
+          }
+        }
+      });
+    });
   }
 
   // TODO - sort by cost descending (most expensive goes first)
