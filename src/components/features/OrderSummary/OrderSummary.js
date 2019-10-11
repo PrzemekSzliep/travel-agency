@@ -15,7 +15,7 @@ class OrderSummary extends React.Component {
 
 OrderSummary.propTypes = {
   cost: PropTypes.node,
-  options: PropTypes.objectOf(PropTypes.object),
+  options: PropTypes.object,
 };
 
 export default OrderSummary;
