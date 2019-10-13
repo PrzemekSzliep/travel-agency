@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import styles from './Hero.scss';
 import PropTypes from 'prop-types';
@@ -12,7 +13,7 @@ const Hero = ({variant = '', titleText, imageSrc, ...otherProps}) => (
 Hero.propTypes = {
   variant: PropTypes.string,
   titleText: PropTypes.node.isRequired,
-  imageSrc: PropTypes.string,
+  imageSrc: PropTypes.string.isRequired,
 };
 
 export default Hero;
